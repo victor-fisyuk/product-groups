@@ -1,0 +1,10 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <include file="db/changelog/001-add-groups-table.xml"/>
+    <include file="db/changelog/002-add-group-tags-table.xml"/>
+    <include file="db/changelog/003-add-product-table.xml"/>
+    <include file="db/changelog/004-add-product-tags-table.xml"/>
+</databaseChangeLog>

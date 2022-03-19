@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="Victor Fisyuk" id="add-product-table">
+        <createTable tableName="product">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="product_pkey"/>
+            </column>
+            <column name="name" type="TEXT"/>
+            <column name="version" type="BIGINT"/>
+            <column name="group_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Victor Fisyuk" id="create-product-sequence">
+        <createSequence sequenceName="product_sequence"
+                        dataType="bigint"
+                        minValue="1"
+                        maxValue="9223372036854775807"
+                        startValue="1"
+                        incrementBy="1"
+                        cacheSize="1"
+                        cycle="false"/>
+    </changeSet>
+
+    <changeSet author="Victor Fisyuk" id="add-foreign-key-product-to-group">
+        <addForeignKeyConstraint constraintName="fk_product_groups"
+                                 baseTableName="product"
+                                 baseColumnNames="group_id"
+                                 referencedTableName="groups"
+                                 referencedColumnNames="id"
+                                 onDelete="NO ACTION"
+                                 onUpdate="NO ACTION"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 validate="true"/>
+    </changeSet>
+</databaseChangeLog>
